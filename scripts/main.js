@@ -27,15 +27,16 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
+function populateListProductChoices(slct1, slctorganic, slct2) {
     var s1 = document.getElementById(slct1);
+	var org = document.getElementById(slctorganic);
     var s2 = document.getElementById(slct2);
 	
 	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
     s2.innerHTML = "";
 		
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+    var optionArray = restrictListProducts(products, s1.value, org.checked);
 
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">
@@ -43,17 +44,18 @@ function populateListProductChoices(slct1, slct2) {
 		
 	for (i = 0; i < optionArray.length; i++) {
 			
-		var productName = optionArray[i];
+		var productName = optionArray[i].name + " " + optionArray[i].price + "$";
 		// create the checkbox and add in HTML DOM
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
-		checkbox.value = productName;
+		checkbox.value = optionArray[i].name;
 		s2.appendChild(checkbox);
 		
 		// create a label for the checkbox, and also add in HTML DOM
 		var label = document.createElement('label')
-		label.htmlFor = productName;
+		label.htmlFor = optionArray[i].name;
+		label.className = "custom-label"
 		label.appendChild(document.createTextNode(productName));
 		s2.appendChild(label);
 		
@@ -68,7 +70,9 @@ function populateListProductChoices(slct1, slct2) {
 
 function selectedItems(){
 	
+
 	var ele = document.getElementsByName("product");
+
 	var chosenProducts = [];
 	
 	var c = document.getElementById('displayCart');
@@ -88,7 +92,7 @@ function selectedItems(){
 		
 	// add paragraph and total price
 	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	c.appendChild(document.createTextNode("Your Total Price comes down to " + getTotalPrice(chosenProducts)));
 		
 }
 
