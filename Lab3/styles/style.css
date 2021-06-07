@@ -4,7 +4,7 @@
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: rgb(150, 218, 150);
+  background-color:rgb(126, 228, 247)
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -25,7 +25,7 @@
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: rgb(129, 192, 36);
+  background-color: rgb(179, 174, 174);
 }
 
 /* Style the tab content */
@@ -38,13 +38,13 @@
 
 h1{
   text-align: center;
-  color: green;
+  color: black;
 }
 h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif ;
 }
 body{
-  background-color: rgb(240, 255, 246);
+  background-color: rgb(235, 247, 255);
 }
 p{
   font-family: Arial, Helvetica, sans-serif;

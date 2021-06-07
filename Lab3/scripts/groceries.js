@@ -81,31 +81,60 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction, organic) {
+function restrictListProducts(prods, lactose, nuts, organic) {
 	let product_names = [];
 	for (let i=0; i<prods.length; i+=1) {
-		if(organic == true && prods[i].organic == true){
-			if ((restriction == "Lactose Intolerant") && (prods[i].lactose == false)){
-				product_names.push(prods[i]);
+
+		if(lactose){
+			if(nuts){
+				if(organic){
+					if(prods[i].lactose == false && prods[i].nuts == false && prods[i].organic == true){
+						product_names.push(prods[i]);
+						continue;
+					}
+				}
+				else{
+					if(prods[i].lactose == false && prods[i].nuts == false){
+						product_names.push(prods[i]);
+						continue;
+					}
+				}
 			}
-			else if ((restriction == "Nut Allergies") && (prods[i].nuts == false)){
-				product_names.push(prods[i]);
+			else if(organic){
+				if(prods[i].lactose == false && prods[i].organic == true){
+					product_names.push(prods[i]);
+					continue;
+				}
 			}
-			else if (restriction == "None"){
-				product_names.push(prods[i]);
+			else{
+				if(prods[i].lactose == false){
+					product_names.push(prods[i]);
+					continue;
+				}
 			}
 		}
-		else if(organic == false){
-
-			if ((restriction == "Lactose Intolerant") && (prods[i].lactose == false)){
-				product_names.push(prods[i]);
+		else if(nuts){
+			if(organic){
+				if(prods[i].lactose == false && prods[i].organic == true){
+					product_names.push(prods[i]);
+					continue;
+				}
 			}
-			else if ((restriction == "Nut Allergies") && (prods[i].nuts == false)){
-				product_names.push(prods[i]);
+			else{
+				if(prods[i].nuts == false){
+					product_names.push(prods[i]);
+					continue;
+				}
 			}
-			else if (restriction == "None"){
+		}
+		else if(organic){
+			if(prods[i].organic == true){
 				product_names.push(prods[i]);
+				continue;
 			}
+		}
+		else{
+			product_names.push(prods[i]);
 		}
 	}
 	let sortedproducts = [];

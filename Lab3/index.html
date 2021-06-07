@@ -7,28 +7,25 @@
 
 <body>
 
-  <h1>Welcome to Poe's Groceries</h1>
+  <h1>Poe's Groceries</h1>
 
 <!-- Tab links, each one with an onclick event associated with it -->
 <div class="tab">
   <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
-  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products');populateListProductChoices('Lactose', 'nuts', 'organic', 'displayProduct');">Products</button>
   <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
 </div>
 
 <!-- Tab content -->
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
-  <p>Tell us a bit about you.</p>
-	<p>Choose a Category:</p>
-	<select style="width: 200px; height: 30px;" id="dietSelect" name="dietSelect" onchange="populateListProductChoices('dietSelect', 'organic', 'displayProduct')">
-	<option value=""></option>
-	<option value="Lactose Intolerant">Lactose Intolerant</option>
-    <option value="Nut Allergies">Nut Allergies</option>
-    <option value="None">None</option>
-	</select><br/><br/>
+  <p>Tell us a bit about you.</p><br/>
+  <label class="custom-label" for="Lactose">Are you Lactose Intolerant? </label>
+  <input type="checkbox" id="Lactose" name="Lactose" value="Lactose Intolerant" onclick="populateListProductChoices('Lactose', 'nuts', 'organic', 'displayProduct')"><br/><br/>
+  <label class="custom-label" for="nuts">Are you Allergic to Nuts?</label>
+  <input type="checkbox" id="nuts" name="nuts" value="Nut Allergies" onclick="populateListProductChoices('Lactose', 'nuts', 'organic', 'displayProduct')"><br/><br/>
   <label class="custom-label" for="organic">Do you prefer our famous Organic Products? </label>
-  <input type="checkbox" id="organic" name="organic" value="Organic" onclick="populateListProductChoices('dietSelect', 'organic', 'displayProduct')">
+  <input type="checkbox" id="organic" name="organic" value="Organic" onclick="populateListProductChoices('Lactose', 'nuts', 'organic', 'displayProduct')"><br/><br/>
 </div>
 
 <div id="Products" class="tabcontent">
@@ -39,6 +36,8 @@
 	 <button id="addCart" type="button" class="custom-button" onclick="selectedItems()">
 		Add selected items to cart.
 	</button>
+
+  <button id="goCart" type="button" class="custom-button" onclick="openInfo(event, 'Cart')">Go to Shopping cart</button>
 </div>
 
 <div id="Cart" class="tabcontent">
