@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <h1>Welcome to Poe's Groceries</h1>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Client Information</h3>
+  <p>Tell us a bit about you.</p>
+	<p>Choose a Category:</p>
+	<select style="width: 200px; height: 30px;" id="dietSelect" name="dietSelect" onchange="populateListProductChoices('dietSelect', 'organic', 'displayProduct')">
+	<option value=""></option>
+	<option value="Lactose Intolerant">Lactose Intolerant</option>
+    <option value="Nut Allergies">Nut Allergies</option>
+    <option value="None">None</option>
+	</select><br/><br/>
+  <label class="custom-label" for="organic">Do you prefer our famous Organic Products? </label>
+  <input type="checkbox" id="organic" name="organic" value="Organic" onclick="populateListProductChoices('dietSelect', 'organic', 'displayProduct')">
+</div>
+
+<div id="Products" class="tabcontent">
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+	 <p>Choose items to buy:</p>
+	 <div id="displayProduct"></div>
+	 <button id="addCart" type="button" class="custom-button" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div class="custom-cart" id="displayCart"></div>
+</div>
+<br/>
+<br/>
+<img src="assets/groceries.png" alt="Poe's Groceries" width="400" height="500" class="center">
+
+<footer>
+  <p style="text-align: right;">Website designed by Zayd Ghazal</p>
+</footer>
+
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
