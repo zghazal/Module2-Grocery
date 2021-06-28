@@ -1,0 +1,46 @@
+td{
+    font-size: 25px;
+}
+p{
+    font-size: 20px;
+}
+.btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h2{
+    text-align: center;
+}
+
+h3{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+a{
+    color: white;
+}
+nav{
+    margin-top: 0%;
+}
+h1{
+    float:left;
+}
+img{
+    display: inline;
+}
+
+.expiry{
+    width: 130px;
+    display: inline;
+}
+.nav-item{
+
+    font-size: 10px;
+    position: relative;
+
+}
+.navbar-brand{
+    font-size: 30px;
+}
+
+
