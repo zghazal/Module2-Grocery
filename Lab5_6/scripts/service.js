@@ -66,18 +66,6 @@ $(document).ready(function(){
         }
     });
 
-    $("#date").on("change", function(){
-        if(!validateDate("date")){
-            alert("Please choose an available date");
-            $("#date").val("");
-            $("#date").addClass("error");
-        }
-        else{
-            $("#date").removeClass("error");
-        }
-    });
-
-
 
 
 
